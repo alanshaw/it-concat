@@ -1,0 +1,35 @@
+{
+  "name": "it-concat",
+  "version": "0.0.0",
+  "description": "Concat all buffers/strings yielded from an async iterable into a single BufferList/string",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test.js --verbose",
+    "lint": "standard",
+    "coverage": "nyc --reporter=text --reporter=lcov npm test"
+  },
+  "keywords": [
+    "concat",
+    "join",
+    "glue",
+    "buffer",
+    "bufferlist",
+    "string",
+    "iterable",
+    "iterator",
+    "async"
+  ],
+  "author": "Alan Shaw",
+  "license": "MIT",
+  "dependencies": {
+    "bl": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/bl": "^2.1.0",
+    "ava": "^2.4.0",
+    "nyc": "^14.1.1",
+    "random-bytes": "^1.0.0",
+    "random-int": "^2.0.1",
+    "standard": "^14.3.1"
+  }
+}
