@@ -31,5 +31,13 @@
     "random-bytes": "^1.0.0",
     "random-int": "^2.0.1",
     "standard": "^14.3.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanshaw/it-concat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alanshaw/it-concat/issues"
+  },
+  "homepage": "https://github.com/alanshaw/it-concat#readme"
 }
