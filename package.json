@@ -1,6 +1,6 @@
 {
   "name": "it-concat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Concat all buffers/strings yielded from an async iterable into a single BufferList/string",
   "main": "index.js",
   "scripts": {
