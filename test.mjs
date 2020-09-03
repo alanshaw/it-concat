@@ -1,8 +1,8 @@
 import test from 'ava'
 import randomBytes from 'random-bytes'
 import randomInt from 'random-int'
-import BufferList from 'bl/BufferList'
-import concat from '.'
+import BufferList from 'bl/BufferList.js'
+import concat from './index.js'
 
 const randomBuffers = max => Promise.all(Array.from(Array(max), () => randomBytes(randomInt(1, 128))))
 const randomStrings = async max => {

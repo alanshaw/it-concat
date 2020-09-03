@@ -4,7 +4,7 @@
   "description": "Concat all buffers/strings yielded from an async iterable into a single BufferList/string",
   "main": "index.js",
   "scripts": {
-    "test": "ava test.js --verbose",
+    "test": "ava test.mjs --verbose",
     "lint": "standard",
     "coverage": "nyc --reporter=text --reporter=lcov npm test"
   },
@@ -26,8 +26,8 @@
   },
   "devDependencies": {
     "@types/bl": "^2.1.0",
-    "ava": "^2.4.0",
-    "nyc": "^14.1.1",
+    "ava": "^3.12.1",
+    "nyc": "^15.1.0",
     "random-bytes": "^1.0.0",
     "random-int": "^2.0.1",
     "standard": "^14.3.1"
