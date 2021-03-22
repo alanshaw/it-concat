@@ -25,12 +25,12 @@
     "bl": "^4.0.0"
   },
   "devDependencies": {
-    "@types/bl": "^2.1.0",
+    "@types/bl": "^4.1.0",
     "ava": "^3.12.1",
     "nyc": "^15.1.0",
     "random-bytes": "^1.0.0",
     "random-int": "^2.0.1",
-    "standard": "^14.3.1"
+    "standard": "^16.0.3"
   },
   "repository": {
     "type": "git",
