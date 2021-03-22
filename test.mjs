@@ -55,3 +55,9 @@ test('should throw for invalid type', async t => {
   const err = await t.throwsAsync(concat(input, { type: 'donkey' }))
   t.is(err.message, 'invalid type "donkey"')
 })
+
+test('should concat buffers as buffers', async t => {
+  const input = [Buffer.from('a0', 'hex')]
+  const output = await concat(input, { type: 'buffer' })
+  t.is(output.toString('hex'), 'a0')
+})
