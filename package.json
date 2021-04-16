@@ -22,10 +22,10 @@
   "author": "Alan Shaw",
   "license": "MIT",
   "dependencies": {
-    "bl": "^4.0.0"
+    "bl": "^5.0.0"
   },
   "devDependencies": {
-    "@types/bl": "^4.1.0",
+    "@types/bl": "^5.0.0",
     "ava": "^3.12.1",
     "nyc": "^15.1.0",
     "random-bytes": "^1.0.0",
