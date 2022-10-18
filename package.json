@@ -2,36 +2,9 @@
   "name": "it-concat",
   "version": "2.0.0",
   "description": "Concat all buffers/strings yielded from an async iterable into a single BufferList/string",
-  "main": "index.js",
-  "scripts": {
-    "test": "ava test.mjs --verbose",
-    "lint": "standard",
-    "coverage": "nyc --reporter=text --reporter=lcov npm test"
-  },
-  "keywords": [
-    "concat",
-    "join",
-    "glue",
-    "buffer",
-    "bufferlist",
-    "string",
-    "iterable",
-    "iterator",
-    "async"
-  ],
   "author": "Alan Shaw",
-  "license": "MIT",
-  "dependencies": {
-    "bl": "^5.0.0"
-  },
-  "devDependencies": {
-    "@types/bl": "^5.0.0",
-    "ava": "^3.12.1",
-    "nyc": "^15.1.0",
-    "random-bytes": "^1.0.0",
-    "random-int": "^2.0.1",
-    "standard": "^16.0.3"
-  },
+  "license": "Apache-2.0 OR MIT",
+  "homepage": "https://github.com/alanshaw/it-concat#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alanshaw/it-concat.git"
@@ -39,5 +12,146 @@
   "bugs": {
     "url": "https://github.com/alanshaw/it-concat/issues"
   },
-  "homepage": "https://github.com/alanshaw/it-concat#readme"
+  "keywords": [
+    "async",
+    "buffer",
+    "bufferlist",
+    "concat",
+    "glue",
+    "iterable",
+    "iterator",
+    "join",
+    "string"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "src",
+    "dist/src",
+    "!dist/test",
+    "!**/*.tsbuildinfo"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "eslintConfig": {
+    "extends": "ipfs",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            {
+              "breaking": true,
+              "release": "major"
+            },
+            {
+              "revert": true,
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "type": "deps",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ]
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits",
+          "presetConfig": {
+            "types": [
+              {
+                "type": "feat",
+                "section": "Features"
+              },
+              {
+                "type": "fix",
+                "section": "Bug Fixes"
+              },
+              {
+                "type": "chore",
+                "section": "Trivial Changes"
+              },
+              {
+                "type": "docs",
+                "section": "Documentation"
+              },
+              {
+                "type": "deps",
+                "section": "Dependencies"
+              },
+              {
+                "type": "test",
+                "section": "Tests"
+              }
+            ]
+          }
+        }
+      ],
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  },
+  "scripts": {
+    "lint": "aegir lint",
+    "dep-check": "aegir dep-check",
+    "build": "aegir build",
+    "test": "aegir test",
+    "test:chrome": "aegir test -t browser --cov",
+    "test:chrome-webworker": "aegir test -t webworker",
+    "test:firefox": "aegir test -t browser -- --browser firefox",
+    "test:firefox-webworker": "aegir test -t webworker -- --browser firefox",
+    "test:node": "aegir test -t node --cov",
+    "test:electron-main": "aegir test -t electron-main",
+    "release": "aegir release"
+  },
+  "dependencies": {
+    "uint8arraylist": "^2.3.3",
+    "uint8arrays": "^4.0.2"
+  },
+  "devDependencies": {
+    "aegir": "^37.5.6",
+    "iso-random-stream": "^2.0.2",
+    "random-int": "^2.0.1"
+  }
 }

@@ -1,53 +1,64 @@
-# it-concat
+# it-concat <!-- omit in toc -->
 
-[![Build Status](https://travis-ci.org/alanshaw/it-concat.svg?branch=master)](https://travis-ci.org/alanshaw/it-concat)
-[![dependencies Status](https://status.david-dm.org/gh/alanshaw/it-concat.svg)](https://david-dm.org/alanshaw/it-concat)
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![codecov](https://img.shields.io/codecov/c/github/alanshaw/it-concat.svg?style=flat-square)](https://codecov.io/gh/alanshaw/it-concat)
+[![CI](https://img.shields.io/github/workflow/status/alanshaw/it-concat/test%20&%20maybe%20release/master?style=flat-square)](https://github.com/alanshaw/it-concat/actions/workflows/js-test-and-release.yml)
 
-> Concat all buffers/strings yielded from an async iterable into a single [`BufferList`](https://www.npmjs.com/package/bl)/`string`.
+> Concat all buffers/strings yielded from an async iterable into a single BufferList/string
+
+## Table of contents <!-- omit in toc -->
+
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+  - [`concat(source, options?): Promise`](#concatsource-options-promise)
+- [Related](#related)
+- [Contribute](#contribute)
+- [License](#license)
+- [Contribute](#contribute-1)
 
 ## Install
 
-```sh
-npm install it-concat
+```console
+$ npm i it-concat
 ```
 
 ## Usage
 
-Concat buffers to a single [`BufferList`](https://www.npmjs.com/package/bl):
+Concat Uint8Arrays to a single [`Uint8ArrayList`](https://www.npmjs.com/package/uint8arraylist):
 
 ```js
-const concat = require('it-concat')
+import concat from 'it-concat'
+import { toString } from 'uint8arrays'
+import fs from 'fs'
 
-const fs = require('fs')
 fs.writeFileSync('./test.txt', 'Hello World!')
 
 // Node.js Readable Streams are async iterables!
 const chunks = await concat(fs.createReadStream('./test.txt'))
 
-// chunks is a BufferList
+// chunks is a Uint8ArrayList
 console.log(chunks)
 /*
-BufferList {
-  _bufs: [ <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64 21> ],
+Uint8ArrayList {
+  _bufs: [ <Uint8Array 48 65 6c 6c 6f 20 57 6f 72 6c 64 21> ],
   length: 12
 }
 */
-console.log(chunks.toString())
+console.log(toString(chunks.subarray)))
 // Hello World!
 ```
 
-Concat buffers to a single _string_:
+Concat Uint8Arrays to a single *string*:
 
 ```js
-const concat = require('it-concat')
+import concat from 'it-concat'
+import fs from 'fs'
 
-const fs = require('fs')
 fs.writeFileSync('./test.txt', 'Hello World!')
 
 // Node.js Readable Streams are async iterables!
 // Note that we pass `{ type: 'string' }` to tell concat that we want a string
-// back and not a buffer. This is necessary because the source data is buffer(s).
+// back and not a Uint8Array. This is necessary because the source data is Uint8Array(s).
 const chunks = await concat(fs.createReadStream('./test.txt'), { type: 'string' })
 
 console.log(chunks)
@@ -57,14 +68,14 @@ console.log(chunks)
 Concat strings to a single string:
 
 ```js
-const concat = require('it-concat')
+import concat from 'it-concat'
+import fs from 'fs'
 
-const fs = require('fs')
 fs.writeFileSync('./test.txt', 'Hello World!')
 
 // Node.js Readable Streams are async iterables!
 // Note that we don't need to pass `{ type: 'string' }` to tell concat that we
-// want a string back because the source data is buffer(s).
+// want a string back because the source data is Uint8Array(s).
 const chunks = await concat(fs.createReadStream('./test.txt', { encoding: 'utf8' }))
 
 console.log(chunks)
@@ -74,25 +85,25 @@ console.log(chunks)
 ## API
 
 ```js
-const concat = require('it-concat')
+import concat from 'it-concat'
 ```
 
 ### `concat(source, options?): Promise`
 
-Concat all buffers or strings yielded from the async iterable `source` into a single [`BufferList`](https://www.npmjs.com/package/bl) or `string`.
+Concat all Uint8Arrays or strings yielded from the async iterable `source` into a single [`Uint8ArrayList`](https://www.npmjs.com/package/bl) or `string`.
 
-* `source` (`AsyncIterable<Buffer | BufferList | string>`) - the source iterable to concat from
-* `options` (`Object`) - optional options
-* `options.type` (`string`) - return type of the function, pass `'string'` to recieve a string or `'buffer'` for a `BufferList`.
+- `source` (`AsyncIterable<Uint8Array | Uint8ArrayList | string>`) - the source iterable to concat from
+- `options` (`Object`) - optional options
+- `options.type` (`string`) - return type of the function, pass `'string'` to recieve a string or `'Uint8Array'` for a `Uint8ArrayList`.
 
-Returns a `Promise` that resolves to a `BufferList` or `string`.
+Returns a `Promise` that resolves to a `Uint8ArrayList` or `string`.
 
-If `options.type` is _not_ passed the type of the objects yielded from the `source` is detected and a `BufferList` or `string` is returned appropriately. If the `source` does not yield anything an empty `BufferList` is returned. If the source is expected to return strings (but may not yield anything), pass `options.type: 'string'` to ensure an empty string is returned instead of an empty `BufferList`.
+If `options.type` is *not* passed the type of the objects yielded from the `source` is detected and a `Uint8ArrayList` or `string` is returned appropriately. If the `source` does not yield anything an empty `Uint8ArrayList` is returned. If the source is expected to return strings (but may not yield anything), pass `options.type: 'string'` to ensure an empty string is returned instead of an empty `Uint8ArrayList`.
 
 ## Related
 
-* [`stream-to-it`](https://www.npmjs.com/package/stream-to-it) Convert Node.js streams to streaming iterables
-* [`it-pipe`](https://www.npmjs.com/package/it-pipe) Utility to "pipe" async iterables together
+- [`stream-to-it`](https://www.npmjs.com/package/stream-to-it) Convert Node.js streams to streaming iterables
+- [`it-pipe`](https://www.npmjs.com/package/it-pipe) Utility to "pipe" async iterables together
 
 [List of awesome modules for working with async iterables](https://github.com/alanshaw/it-awesome).
 
@@ -102,4 +113,11 @@ Feel free to dive in! [Open an issue](https://github.com/alanshaw/it-concat/issu
 
 ## License
 
-[MIT](LICENSE) © Alan Shaw
+Licensed under either of
+
+- Apache 2.0, ([LICENSE-APACHE](LICENSE-APACHE) / <http://www.apache.org/licenses/LICENSE-2.0>)
+- MIT ([LICENSE-MIT](LICENSE-MIT) / <http://opensource.org/licenses/MIT>)
+
+## Contribute
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
