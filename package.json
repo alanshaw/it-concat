@@ -152,6 +152,6 @@
   "devDependencies": {
     "aegir": "^37.5.6",
     "iso-random-stream": "^2.0.2",
-    "random-int": "^2.0.1"
+    "random-int": "^3.0.0"
   }
 }
