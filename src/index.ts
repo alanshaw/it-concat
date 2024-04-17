@@ -1,6 +1,6 @@
 import { Uint8ArrayList, isUint8ArrayList } from 'uint8arraylist'
-import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
 import { fromString as uint8ArrayFromString } from 'uint8arrays/from-string'
+import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
 
 const TypeDefault: Record<string, () => any> = {
   string: () => '',
@@ -11,7 +11,7 @@ function concat (source: Iterable<string> | AsyncIterable<string>, options?: { t
 function concat (source: Iterable<string> | AsyncIterable<string>, options?: { type: 'buffer' }): Promise<Uint8ArrayList>
 function concat (source: Iterable<Uint8Array | Uint8ArrayList> | AsyncIterable<Uint8Array | Uint8ArrayList>, options?: { type: 'buffer' }): Promise<Uint8ArrayList>
 function concat (source: Iterable<Uint8Array | Uint8ArrayList> | AsyncIterable<Uint8Array | Uint8ArrayList>, options: { type: 'string' }): Promise<string>
-async function concat (source: any, options: any) {
+async function concat (source: any, options: any): Promise<any> {
   options = options ?? {}
   let type: 'string' | 'buffer' = options.type
 

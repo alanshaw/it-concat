@@ -3,12 +3,12 @@ import randomBytes from 'iso-random-stream/src/random.js'
 import randomInt from 'random-int'
 import { Uint8ArrayList } from 'uint8arraylist'
 import { concat as uint8ArrayConcat } from 'uint8arrays/concat'
-import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
 import { fromString as uint8ArrayFromString } from 'uint8arrays/from-string'
+import { toString as uint8ArrayToString } from 'uint8arrays/to-string'
 import concat from '../src/index.js'
 
-const randomBuffers = async (max: number) => await Promise.all(Array.from(Array(max), () => randomBytes(randomInt(1, 128))))
-const randomStrings = async (max: number) => {
+const randomBuffers = async (max: number): Promise<Buffer[]> => Promise.all(Array.from(Array(max), () => randomBytes(randomInt(1, 128))))
+const randomStrings = async (max: number): Promise<string[]> => {
   const bufs = await randomBuffers(max)
   return bufs.map(b => b.toString('hex'))
 }
