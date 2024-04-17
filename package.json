@@ -148,7 +148,7 @@
   },
   "dependencies": {
     "uint8arraylist": "^2.3.3",
-    "uint8arrays": "^4.0.2"
+    "uint8arrays": "^5.0.3"
   },
   "devDependencies": {
     "aegir": "^42.2.5",
