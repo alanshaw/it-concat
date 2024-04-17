@@ -1,6 +1,6 @@
 {
   "name": "it-concat",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Concat all buffers/strings yielded from an async iterable into a single BufferList/string",
   "author": "Alan Shaw",
   "license": "Apache-2.0 OR MIT",

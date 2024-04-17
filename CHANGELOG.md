@@ -1,3 +1,16 @@
+## [3.0.2](https://github.com/alanshaw/it-concat/compare/v3.0.1...v3.0.2) (2024-04-17)
+
+
+### Trivial Changes
+
+* add or force update .github/workflows/js-test-and-release.yml ([#40](https://github.com/alanshaw/it-concat/issues/40)) ([6ac3479](https://github.com/alanshaw/it-concat/commit/6ac3479970fc6af1fda9fa4ce58dc949dc276b08))
+* delete templates [skip ci] ([#39](https://github.com/alanshaw/it-concat/issues/39)) ([16a3f65](https://github.com/alanshaw/it-concat/commit/16a3f652ee6a9e27e88a8f7ea659b5c0990bab7c))
+
+
+### Dependencies
+
+* **dev:** bump aegir from 37.12.1 to 38.1.8 ([#38](https://github.com/alanshaw/it-concat/issues/38)) ([ae0bcfa](https://github.com/alanshaw/it-concat/commit/ae0bcfadfa5aef2365d10440a1343ab34234c858))
+
 ## [3.0.1](https://github.com/alanshaw/it-concat/compare/v3.0.0...v3.0.1) (2022-10-18)
 
 
