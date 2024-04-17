@@ -1,25 +1,22 @@
-# it-concat <!-- omit in toc -->
+# it-concat
 
 [![codecov](https://img.shields.io/codecov/c/github/alanshaw/it-concat.svg?style=flat-square)](https://codecov.io/gh/alanshaw/it-concat)
-[![CI](https://img.shields.io/github/workflow/status/alanshaw/it-concat/test%20&%20maybe%20release/master?style=flat-square)](https://github.com/alanshaw/it-concat/actions/workflows/js-test-and-release.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/alanshaw/it-concat/js-test-and-release.yml?branch=master\&style=flat-square)](https://github.com/alanshaw/it-concat/actions/workflows/js-test-and-release.yml?query=branch%3Amaster)
 
 > Concat all buffers/strings yielded from an async iterable into a single BufferList/string
 
-## Table of contents <!-- omit in toc -->
-
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-  - [`concat(source, options?): Promise`](#concatsource-options-promise)
-- [Related](#related)
-- [Contribute](#contribute)
-- [License](#license)
-- [Contribute](#contribute-1)
-
-## Install
+# Install
 
 ```console
 $ npm i it-concat
+```
+
+## Browser `<script>` tag
+
+Loading this module through a script tag will make it's exports available as `ItConcat` in the global namespace.
+
+```html
+<script src="https://unpkg.com/it-concat/dist/index.min.js"></script>
 ```
 
 ## Usage
@@ -107,17 +104,13 @@ If `options.type` is *not* passed the type of the objects yielded from the `sour
 
 [List of awesome modules for working with async iterables](https://github.com/alanshaw/it-awesome).
 
-## Contribute
-
-Feel free to dive in! [Open an issue](https://github.com/alanshaw/it-concat/issues/new) or submit PRs.
-
-## License
+# License
 
 Licensed under either of
 
 - Apache 2.0, ([LICENSE-APACHE](LICENSE-APACHE) / <http://www.apache.org/licenses/LICENSE-2.0>)
 - MIT ([LICENSE-MIT](LICENSE-MIT) / <http://opensource.org/licenses/MIT>)
 
-## Contribute
+# Contribution
 
 Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
