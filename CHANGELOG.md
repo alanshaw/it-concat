@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/alanshaw/it-concat/compare/v3.0.2...v3.0.3) (2024-04-17)
+
+
+### Dependencies
+
+* bump uint8arrays from 4.0.10 to 5.0.3 ([#41](https://github.com/alanshaw/it-concat/issues/41)) ([867745a](https://github.com/alanshaw/it-concat/commit/867745a79814188a28c42426e1c63b0bde145705))
+
 ## [3.0.2](https://github.com/alanshaw/it-concat/compare/v3.0.1...v3.0.2) (2024-04-17)
 
 
